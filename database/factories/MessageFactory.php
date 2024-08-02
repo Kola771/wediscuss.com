@@ -73,19 +73,19 @@ class MessageFactory extends Factory
 
         // Trouver et créer une conversation directe entre the sender et the receiver
         $conversationId = null;
-        if (!$isGroupMessage) {
-            $conversationId = \App\Models\Conversation::firstOrCreate(
-                [
-                    "user_id1" => min($senderId, $receiverId),
-                    "user_id2" => max($senderId, $receiverId)
-                ],
+        // if (!$isGroupMessage) {
+        //     $conversationId = \App\Models\Conversation::firstOrCreate(
+        //         [
+        //             "user_id1" => min($senderId, $receiverId),
+        //             "user_id2" => max($senderId, $receiverId)
+        //         ],
 
-                [
-                    "last_message_id" => null
-                ]
-            );
+        //         [
+        //             "last_message_id" => null
+        //         ]
+        //     );
 
-        }
+        // }
 
         return [
             "message" => fake()->realText(),
