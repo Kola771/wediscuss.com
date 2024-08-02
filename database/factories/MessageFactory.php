@@ -92,7 +92,7 @@ class MessageFactory extends Factory
             "sender_id" => $senderId,
             "receiver_id" => $receiverId,
             "group_id" => $groupId,
-            "conversation_id" => "",
+            "conversation_id" => $conversationId
         ];
     }
 }
