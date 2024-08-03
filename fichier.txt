@@ -11,3 +11,6 @@ composer require barryvdh/laravel-ide-helper barryvdh/laravel-debugbar --dev
 php artisan ide-helper:models
 php artisan ide-helper:generate
 php artisan ide-helper:eloquent
+
+npm install -D prettier
+touch .prettierrc.json
