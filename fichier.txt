@@ -18,3 +18,9 @@ touch .prettierrc.json
 npm i -D eslint @rushstack/eslint-patch @vue/eslint-config-prettier @vue/eslint-config-typescript
 touch .eslintrc.cjs ou touch eslint.config.json
 npm init @eslint/config
+
+npm install @vueuse/core
+npm i @vueuse/components
+npm i @vueuse/shared
+npm i @iconify/tailwind
+npm install --save-dev @iconify/vue
