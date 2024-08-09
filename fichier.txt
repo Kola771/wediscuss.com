@@ -24,3 +24,5 @@ npm i @vueuse/components
 npm i @vueuse/shared
 npm i @iconify/tailwind
 npm install --save-dev @iconify/vue
+
+php artisan make:resource UserResource
