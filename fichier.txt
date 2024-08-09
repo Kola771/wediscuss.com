@@ -26,3 +26,5 @@ npm i @iconify/tailwind
 npm install --save-dev @iconify/vue
 
 php artisan make:resource UserResource
+
+npm install tailwind-scrollbar

@@ -13,7 +13,7 @@ const showingNavigationDropdown = ref(false);
 
 <template>
   <div>
-    <div class="min-h-screen">
+    <div class="h-screen flex flex-col">
       <nav class="border-b border-gray-100 dark:border-gray-700">
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -146,7 +146,7 @@ const showingNavigationDropdown = ref(false);
       </header>
 
       <!-- Page Content -->
-      <main>
+      <main class="flex-1 max-h-full flex">
         <slot />
       </main>
     </div>
