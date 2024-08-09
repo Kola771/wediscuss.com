@@ -8,7 +8,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import ChatLayout from '@/Layouts/ChatLayout.vue';
 
-defineOptions({ layout: AuthenticatedLayout })
+defineOptions({ layout: AuthenticatedLayout });
 </script>
 
 <style scoped></style>
