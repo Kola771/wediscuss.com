@@ -1,19 +1,14 @@
 <template>
   <div>
-    <AuthenticatedLayout>
-      <template #header>
-        <h2 class="font-semibold text-xl   dark:  leading-tight">
-          Dashboard
-        </h2>
-      </template>
-
-      <p>Vous êtes connecté</p>
-    </AuthenticatedLayout>
+    <chat-layout></chat-layout>
   </div>
 </template>
 
 <script setup lang="ts">
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import ChatLayout from '@/Layouts/ChatLayout.vue';
+
+defineOptions({ layout: AuthenticatedLayout })
 </script>
 
 <style scoped></style>
