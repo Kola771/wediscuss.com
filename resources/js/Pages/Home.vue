@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <chat-layout></chat-layout>
-  </div>
+  <ChatLayout></ChatLayout>
 </template>
 
 <script setup lang="ts">

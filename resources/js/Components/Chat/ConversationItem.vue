@@ -1,27 +1,30 @@
 <template>
-  <Link href="#" class="flex items-center gap-2 p-2 hover:bg-black/40 
-  transition-all px-3 hover:rounded dark:hover:bg-white/30">
-    <!-- Avatar de profil -->
-    <UserAvatar 
-    v-if="conversation.is_user" 
-    :avatar="conversation.avatar" :name="conversation.name"
-    :isOnline="isOnline" />
-
-    <!-- Groupe Avatar -->
-    <GroupAvatar 
-    v-if="conversation.is_group" />
-    
+  <Link href="#" class="flex items-center gap-2 p-2 hover:bg-slate-400/30 transition-all">
+    <!-- Avatar de profil pour les users simples -->
+    <UserAvatar
+      :avatar="conversation.avatar"
+      :name="conversation.name"
+      :isOnline="isOnline"
+      v-if="conversation.is_user"
+    />
+    <!-- Avatar de profile pour les groupes -->
+    <GroupAvatar v-if="conversation.is_group" />
     <div class="flex-1 max-w-full overflow-hidden text-xs">
-    <div class="flex items-center justify-between gap-1">
-      <h3 class="font-semibold text-sm text-nowrap overflow-hidden text-ellipsis">{{ conversation.name }}</h3>
-      <span v-if="conversation.last_message_date" class="text-nowrap italic text-[8px]">
-        {{ conversation.last_message_date }}
-      </span>
+      <div class="flex gap-1 justify-between items-center">
+        <h3 class="font-semibold text-sm text-nowrap text-ellipsis truncate">
+          {{ conversation.name }}
+        </h3>
+        <span v-if="conversation.last_message_date" class="text-nowrap italic">
+          {{ conversation.last_message_date }}
+        </span>
+      </div>
+      <p
+        v-if="conversation.last_message"
+        class="text-xs text-nowrap overflow-hidden text-ellipsis truncate"
+      >
+        {{ conversation.last_message }}
+      </p>
     </div>
-    <p v-if="conversation.last_message" class="text-xs text-nowrap overflow-hidden text-ellipsis">
-      {{ conversation.last_message }}
-    </p>
-  </div>
   </Link>
 </template>
 
