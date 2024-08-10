@@ -1,9 +1,11 @@
 <template>
-  <Link href="#" class="flex items-center gap-2 p-2">
+  <Link href="#" class="flex items-center gap-2 p-2 hover:bg-black/40 
+  transition-all px-3 hover:rounded dark:hover:bg-white/30">
     <!-- Avatar de profil -->
     <UserAvatar 
     v-if="conversation.is_user" 
-    :avatar="conversation.avatar" :name="conversation.name" />
+    :avatar="conversation.avatar" :name="conversation.name"
+    :isOnline="isOnline" />
 
     <!-- Groupe Avatar -->
     <GroupAvatar 
@@ -33,6 +35,7 @@ const page = usePage();
 
 const props = defineProps<{
   conversation: Conversation;
+  isOnline: boolean;
 }>();
 
 const currentUser = page.props.auth.user;

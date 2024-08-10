@@ -19,13 +19,15 @@
 
       <!-- Liste des conversations -->
       <div
-        class="flex-1 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-slate-300 overflow-y-auto px-3 h-full"
+        class="flex-1 scrollbar-thin scrollbar-thumb-slate-700 pt-2
+        scrollbar-track-slate-300 overflow-y-auto px-1 h-full"
       >
         <!-- Itme de conversation pour chaque conversation -->
         <ConversationItem
           v-for="conversation in filterConversations"
           :key="conversation.is_group ? `group_${conversation.id}` : `ùser_${conversation.id}`"
           :conversation="conversation"
+          :isOnline="isUserOnline(conversation.id.toString())"
         />
       </div>
     </div>
@@ -84,8 +86,14 @@ const filterConversations = computed<Conversation[]>(() => {
     );
   });
 });
+
 // Utilisateurs connectés
 const onlineUsersObj = ref<Record<string, User>>({});
+
+/** fonction qui détermine si un user est connecté */
+function isUserOnline(id: string):boolean {
+  return onlineUsersObj.value[id] ? true : false;
+}
 
 /**
  * Fonction pour rejoindre le canal 'online' et récupérer les utilisateurs connectés
