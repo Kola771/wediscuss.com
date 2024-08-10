@@ -11,7 +11,9 @@
           </button>
         </div>
         <div class="p-3 border-b border-border sticky top-[3rem] z-10">
-          <TextInput v-model="search" class="w-full" />
+          <TextInput v-model="search" class="w-full placeholder:text-[12px] text-[12px]
+          outline-none focus:ring-0 focus:border-gray-200 focus:border-[1px]" 
+          :placeholder="'Messages, groupes...'" />
         </div>
       </div>
 

@@ -27,6 +27,7 @@ export interface Conversation {
   id: number;
   name: string;
   email?: string;
+  avatar?: string;
   is_group: boolean;
   is_user?: boolean;
   is_admin?: number;
