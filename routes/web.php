@@ -1,13 +1,18 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::middleware(["auth", "verified"])->group(function() {
-Route::get('/', [HomeController::class, "home"])->name("dashboard");
+Route::middleware(["auth", "verified"])->group(function () {
+    Route::get('/', [HomeController::class, "home"])->name("dashboard");
+
+    Route::post("/user/block/{id}", [UserController::class, "blockUser"])->name('user.block');
+    Route::post("/user/unblock/{id}", [UserController::class, "unblockUser"])->name('user.unblock');
 });
 
 // Route::get('/dashboard', function () {
@@ -20,4 +25,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
