@@ -32,7 +32,7 @@
     </div>
     <!-- Zone d'affichage des messages -->
     <div class="flex-1 flex flex-col overflow-hidden">
-      Messages
+      <slot />
       <!-- Item de conversation pour chaque conversation -->
     </div>
   </div>
