@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
@@ -14,13 +15,8 @@ Route::middleware(["auth", "verified"])->group(function () {
     Route::post("/user/block/{id}", [UserController::class, "blockUser"])->name('user.block');
     Route::post("/user/unblock/{id}", [UserController::class, "unblockUser"])->name('user.unblock');
 
-    Route::get("/user/{user}", function(\App\Models\User $user) {
-        return "Vous voulez voir vos conversations avec {$user->name}";
-    })->name("chat.user");
-    Route::get("/group/{group}", function(\App\Models\Group $group) {
-        return "Vous voulez voir vos conversations dans le groupe {$group->name}";
-
-    })->name("chat.group");
+    Route::get("/user/{user}", [MessageController::class, 'byUser'])->name("chat.user");
+    Route::get("/group/{group}", [MessageController::class, 'byGroup'])->name("chat.group");
 });
 
 // Route::get('/dashboard', function () {

@@ -105,4 +105,33 @@ class Conversation extends Model
             return $group->toConversationArray();
         }));
     }
+
+    /**
+     * Trouve les conversations entre 2 utilisateurs puis m-à-j la colonne "last_message_id"
+     * @param int $user_id1
+     * @param int $user_id2
+     * @param Message|\Illuminate\Database\Eloquent\TModel $message
+     * @return void
+     */
+    public static function updateConversationWithMessage(int $user_id1, int $user_id2, Message $message) {
+        $conversation = Conversation::where(function ($query) use ($user_id1, $user_id2) {
+            $query->where("user_id1", $user_id1)
+            ->where("user_id2", $user_id2);
+        })->orWhere(function ($query) use ($user_id1, $user_id2) {
+            $query->where("user_id1", $user_id2)
+            ->where("user_id2", $user_id1);
+        })->first();
+
+        if($conversation) {
+            $conversation->update([
+                "last_message_id" => $message->id
+            ]);
+        } else {
+            Conversation::create([
+                "user_id1" => $message->user_id1,
+                "user_id2" => $message->user_id2,
+                "last_message_id" => $message->id
+            ]);
+        }
+    }
 }

@@ -133,4 +133,19 @@ class Group extends Model
             "last_message_date" => $this->last_message_date,
         ];
     }
+
+    /**
+     * m-à-j l'id du dernier message envoyé dans un group
+     * @param mixed $groupId
+     * @param mixed $message
+     * @return void
+     */
+    public static function updateGroupWithMessage($groupId, $message){
+        $group = Group::find($groupId);
+
+        $group::update([
+            ["id" => $groupId], // condition de recherche
+            ["last_message_id" => $message->id] // valeurs à mettre à jour
+        ]);
+    }
 }
