@@ -15,7 +15,49 @@ export type PageProps<T extends Record<string, unknown> = Record<string, unknown
     user: User;
   };
   conversations: Conversation[];
+  selectedConversation?: Conversation;
+  messages?: Messages;
 };
+
+export interface Messages {
+  data: MessageData[];
+  links: MessageLinks;
+  meta: MessageMeta
+}
+
+export interface MessageData {
+  id: number;
+  message: string;
+  sender_id: number;
+  sender: User;
+  receiver_id?: number;
+  group_id?: number;
+  attachments?: MessageAttachment[];
+  updated_at: Date;
+  created_at: Date;
+}
+
+export interface MessageLinks {
+  first: string;
+  last: string;
+  prev?: string;
+  next?: string;
+}
+
+export interface MessageMeta {
+  current_page: number;
+  from: number;
+  to: number;
+  links: MessageLinks[];
+  path: string;
+  per_page: number;
+  total: number;
+  last_page: number;
+}
+
+export interface MessageAttachment {
+
+}
 
 export interface UserInfo extends User {
   blocked_at: null;
