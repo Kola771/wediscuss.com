@@ -6,28 +6,33 @@
       </p>
       <Icon icon="heroicons:chat-bubble-left-right-solid" class="w-32 h-32" />
     </div>
-    <div class="flex flex-col overflow-y-auto scrollbar-thin h-full" v-else>
-      <!-- En-tête de conversation -->
+
+    <!-- <div class="flex flex-col overflow-y-auto scrollbar-thin h-full" v-else>
       <ConversationHeader v-if="selectedConversation" :selected-conversation="selectedConversation" />
 
-      <div class="flex-1 flex-col p-5">
+      <div class="h-full flex flex-end flex-1 flex-col p-5 max-w-7xl mx-auto">
         <div class="flex justify-center h-full">
-          <!-- Au cas où on n'a pas encore de messages -->
           <p class="text-lg" v-if="!messages.length">Pas de messages trouvés !</p>
 
-          <!-- Au cas où on a des messages -->
-          <div class="flex-1 flex flex-col" v-else>
-            <!-- MessageItem -->
-            <MessageItem 
-            v-for="message in messages" 
-            :key="message.id" 
-            :message="message" 
-            :selected-conversation="selectedConversation" 
-            />
+          <div class="flex-1 flex flex-col overflow-y-auto" v-else>
+            <MessageItem v-for="message in messages" :key="message.id" :message="message"
+              :selected-conversation="selectedConversation" />
           </div>
         </div>
+        <MessageInput />
       </div>
-      <!-- Pied de conversation -->
+    </div> -->
+
+    <div class="h-full flex flex-col max-w-7xl mx-auto" v-else>
+      <ConversationHeader v-if="selectedConversation" :selected-conversation="selectedConversation" />
+      <div class="flex-1 overflow-y-auto scrollbar-thin">
+        <p class="text-lg" v-if="!messages.length">Pas de messages trouvés !</p>
+        
+        <div class="flex-1 flex flex-col justify-end" v-else>
+          <MessageItem v-for="message in messages" :key="message.id" :message="message"
+            :selected-conversation="selectedConversation" />
+        </div>
+      </div>
       <MessageInput />
     </div>
   </ChatLayout>
