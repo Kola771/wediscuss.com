@@ -1,36 +1,30 @@
 <template>
   <ChatLayout>
-    <div v-if="!selectedConversation" class="flex flex-col gap-8 justify-center items-center h-full opacity-35">
+    <div
+      v-if="!selectedConversation"
+      class="flex flex-col gap-8 justify-center items-center h-full opacity-35"
+    >
       <p class="text-2xl md:text-4xl p-16 text-on-surface">
         Sélectionnez s'il vous plaît une conversation pour afficher les messages
       </p>
       <Icon icon="heroicons:chat-bubble-left-right-solid" class="w-32 h-32" />
     </div>
 
-    <!-- <div class="flex flex-col overflow-y-auto scrollbar-thin h-full" v-else>
-      <ConversationHeader v-if="selectedConversation" :selected-conversation="selectedConversation" />
-
-      <div class="h-full flex flex-end flex-1 flex-col p-5 max-w-7xl mx-auto">
-        <div class="flex justify-center h-full">
-          <p class="text-lg" v-if="!messages.length">Pas de messages trouvés !</p>
-
-          <div class="flex-1 flex flex-col overflow-y-auto" v-else>
-            <MessageItem v-for="message in messages" :key="message.id" :message="message"
-              :selected-conversation="selectedConversation" />
-          </div>
-        </div>
-        <MessageInput />
-      </div>
-    </div> -->
-
     <div class="h-full flex flex-col max-w-7xl mx-auto" v-else>
-      <ConversationHeader v-if="selectedConversation" :selected-conversation="selectedConversation" />
+      <ConversationHeader
+        v-if="selectedConversation"
+        :selected-conversation="selectedConversation"
+      />
       <div class="flex-1 overflow-y-auto scrollbar-thin">
         <p class="text-lg" v-if="!messages.length">Pas de messages trouvés !</p>
-        
+
         <div class="flex-1 flex flex-col justify-end" v-else>
-          <MessageItem v-for="message in messages" :key="message.id" :message="message"
-            :selected-conversation="selectedConversation" />
+          <MessageItem
+            v-for="message in messages"
+            :key="message.id"
+            :message="message"
+            :selected-conversation="selectedConversation"
+          />
         </div>
       </div>
       <MessageInput />
