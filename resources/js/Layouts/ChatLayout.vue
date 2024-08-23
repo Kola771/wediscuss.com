@@ -45,9 +45,8 @@
 <script setup lang="ts">
 // imports
 import TextInput from '@/Components/TextInput.vue';
-import { Conversation } from '@/types';
 import { usePage } from '@inertiajs/vue3';
-import { computed, onMounted, ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { Icon } from '@iconify/vue';
 import ConversationItem from '@/Components/Chat/ConversationItem.vue';
 import { useOnlineUsers } from '@/composables/useOnlineUsers';
