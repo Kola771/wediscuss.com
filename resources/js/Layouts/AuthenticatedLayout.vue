@@ -146,7 +146,7 @@ const showingNavigationDropdown = ref(false);
     </header>
 
     <!-- Page Content -->
-    <main class="flex-1 max-h-full flex">
+    <main class="flex-1 h-full w-full">
       <slot />
     </main>
   </div>

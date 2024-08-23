@@ -22,7 +22,7 @@ export type PageProps<T extends Record<string, unknown> = Record<string, unknown
 export interface Messages {
   data: MessageData[];
   links: MessageLinks;
-  meta: MessageMeta
+  meta: MessageMeta;
 }
 
 export interface MessageData {
@@ -55,9 +55,7 @@ export interface MessageMeta {
   last_page: number;
 }
 
-export interface MessageAttachment {
-
-}
+export interface MessageAttachment {}
 
 export interface UserInfo extends User {
   blocked_at: null;

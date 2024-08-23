@@ -1,7 +1,7 @@
 <template>
-    <div>
-        Champ de saisie du message
-    </div>
+  <div>
+    <input class="input" placeholder="Tapez un message" />
+  </div>
 </template>
 
 <script setup lang="ts"></script>
