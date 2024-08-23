@@ -38,14 +38,24 @@ import MessageInput from '@/Components/Chat/MessageInput.vue';
 import MessageItem from '@/Components/Chat/MessageItem.vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import ChatLayout from '@/Layouts/ChatLayout.vue';
+import { useConversations } from '@/composables/useConversations';
 import { Icon } from '@iconify/vue';
 import { usePage } from '@inertiajs/vue3';
+import { onMounted } from 'vue';
 
 defineOptions({ layout: AuthenticatedLayout });
 
 const page = usePage();
 
-const selectedConversation = page.props.selectedConversation;
+const {
+  selectedConversation,
+  setSelectedConversations,
+} = useConversations();
+
+onMounted(() => {
+  setSelectedConversations(page.props.selectedConversation);
+});
+
 const messagesData = page.props.messages;
 const messages = messagesData?.data;
 </script>
